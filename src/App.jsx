@@ -7,9 +7,20 @@ function App() {
   return (
     <>
       <Router>
-        <nav>
-          <Link to="/products">Products</Link> | <Link to="/users">Users</Link>
-        </nav>
+        <div>
+          <Link to={"https://astudioassignment.netlify.app/"} target="_blank">
+            Live Demo
+          </Link>
+        </div>
+        <div>
+          <Link to={"https://github.com/waqar-ansari/astudio"} target="_blank">
+            Github Link
+          </Link>
+        </div>
+        <div>
+          <Link to="/products">Product's Page</Link> |{" "}
+          <Link to="/users">User's Page</Link>
+        </div>
         <Routes>
           <Route path="/products" element={<Products />} />
           <Route path="/users" element={<Users />} />
