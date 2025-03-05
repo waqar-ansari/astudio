@@ -1,11 +1,13 @@
 import React from "react";
 import { Table } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 const DataTable = ({ data, category }) => {
   return (
     <>
-      <Table striped bordered hover>
-        <thead>
+      <Table striped bordered hover className="mt-3">
+        <thead className="table-dark">
           {category === "users" ? (
             <tr>
               <th>ID</th>

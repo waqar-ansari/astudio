@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
-import { Form, InputGroup, Button } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { CiSearch } from "react-icons/ci";
 
-const Filters = ({ setSearchQuery }) => {
-  const [showInput, setShowInput] = useState(false);
+
+const Filters = ({ setSearchQuery, placeholder }) => {
+
   const [search, setSearch] = useState('');
+  const [showSearchBar, setShowSearchBar] = useState(false);
 
-  const handleSearch = () => {
+  useEffect(()=>{
     setSearchQuery(search);
-  };
+  },[search])
 
   return (
-    <InputGroup className="mb-3">
-      <Button onClick={() => setShowInput(!showInput)}>🔍</Button>
-      {showInput && (
-        <Form.Control
-          type="text"
-          placeholder="Search"
-          onChange={(e) => setSearch(e.target.value)}
-          onBlur={handleSearch}
-        />
-      )}
-    </InputGroup>
+        <>
+        <CiSearch  style={{fontSize:30}} onClick={()=>setShowSearchBar(!showSearchBar)}/>
+         {showSearchBar && <input
+            type="text"
+            placeholder={placeholder}
+            onChange={(e) => setSearch(e.target.value)}
+            style={{width:300}}
+          />}
+        </>
   );
 };
 

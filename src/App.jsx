@@ -8,7 +8,7 @@ function App() {
     <>
       <Router>
         <nav>
-          <Link to="/users">Users</Link> | <Link to="/products">Products</Link>
+          <Link to="/products">Products</Link> | <Link to="/users">Users</Link>
         </nav>
         <Routes>
           <Route path="/products" element={<Products />} />

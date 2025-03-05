@@ -6,10 +6,13 @@ export const fetchProducts = createAsyncThunk(
   async (params) => {
     console.log("get products called");
     
-    const { limit, skip } = params;
-    const response = await axios.get(
-      `https://dummyjson.com/products?limit=${limit}&skip=${skip}`
-    );
+    const {category, limit, skip } = params;
+    console.log(category,"category");
+    const url = category
+    ? `https://dummyjson.com/products/category/${category}?limit=${limit}&skip=${skip}`
+    : `https://dummyjson.com/products?limit=${limit}&skip=${skip}`;
+
+    const response = await axios.get(url);
     console.log(response.data,"response from products");
     
     return response.data;
@@ -17,7 +20,7 @@ export const fetchProducts = createAsyncThunk(
 );
 
 const productsSlice = createSlice({
-  name: "users",
+  name: "products",
   initialState: {
     products: [],
     loading: false,
