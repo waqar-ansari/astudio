@@ -27,7 +27,6 @@ const Users = () => {
   }, [dispatch, pageSize, currentPage]);
 
   const filteredUsers = users.filter((user) => {
-    console.log("Filtering user:", user);
     return (
       user.firstName.toLowerCase().toString().includes(searchQuery) ||
       user.lastName.toLowerCase().toString().includes(searchQuery)

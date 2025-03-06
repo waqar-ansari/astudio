@@ -29,7 +29,10 @@ const Products = () => {
 
   const filteredProducts = products.filter((product) => {
     console.log("Filtering product:", product);
-    return product.title.toLowerCase().toString().includes(searchQuery);
+    return (
+      product.title.toLowerCase().toString().includes(searchQuery)||
+      product.brand.toLowerCase().toString().includes(searchQuery)
+  )
   });
 
   return (
